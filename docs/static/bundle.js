@@ -591,7 +591,7 @@ https://github.com/joyent/node/blob/master/lib/module.js
     }
 })();
 
-$_mod.installed("makeup-key-emitter$0.0.1", "custom-event-polyfill", "0.3.0");
+$_mod.installed("makeup-key-emitter$0.0.2", "custom-event-polyfill", "0.3.0");
 $_mod.main("/custom-event-polyfill$0.3.0", "custom-event-polyfill");
 $_mod.def("/custom-event-polyfill$0.3.0/custom-event-polyfill", function(require, exports, module, __filename, __dirname) { // Polyfill for creating CustomEvents on IE9/10/11
 
@@ -640,7 +640,7 @@ try {
 
 });
 $_mod.run("/custom-event-polyfill$0.3.0/custom-event-polyfill");
-$_mod.def("/makeup-key-emitter$0.0.1/util", function(require, exports, module, __filename, __dirname) { 'use strict';
+$_mod.def("/makeup-key-emitter$0.0.2/util", function(require, exports, module, __filename, __dirname) { 'use strict';
 
 /*
     IE uses a different naming scheme for KeyboardEvent.key so we map the keyCode instead
@@ -671,12 +671,12 @@ module.exports = {
 };
 
 });
-$_mod.def("/makeup-key-emitter$0.0.1/index", function(require, exports, module, __filename, __dirname) { 'use strict';
+$_mod.def("/makeup-key-emitter$0.0.2/index", function(require, exports, module, __filename, __dirname) { 'use strict';
 
 // requires CustomEvent polyfill for IE9+
 // https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
 
-var util = require('/makeup-key-emitter$0.0.1/util'/*'./util.js'*/);
+var util = require('/makeup-key-emitter$0.0.2/util'/*'./util.js'*/);
 
 function onKeyDownOrUp(evt, el, keyEventType) {
     if (!evt.shiftKey) {
@@ -749,7 +749,7 @@ module.exports = {
 };
 
 });
-$_mod.def("/makeup-key-emitter$0.0.1/docs/index", function(require, exports, module, __filename, __dirname) { var KeyEmitter = require('/makeup-key-emitter$0.0.1/index'/*'../index.js'*/);
+$_mod.def("/makeup-key-emitter$0.0.2/docs/index", function(require, exports, module, __filename, __dirname) { var KeyEmitter = require('/makeup-key-emitter$0.0.2/index'/*'../index.js'*/);
 var widgetEl1 = document.getElementById('widget-1');
 var widget2ButtonEls = document.querySelectorAll('#widget-2 button');
 
@@ -796,4 +796,4 @@ Array.prototype.slice.call(widget2ButtonEls).forEach(function(el) {
 });
 
 });
-$_mod.run("/makeup-key-emitter$0.0.1/docs/index");
+$_mod.run("/makeup-key-emitter$0.0.2/docs/index");
