@@ -21,21 +21,12 @@ describe("makeup-key-emitter", function() {
             KeyEmitter.addKeyDown(testEl);
         });
 
-        it("should trigger arrowRightKeyDown event", function(done) {
-            // assert
-            testEl.addEventListener('arrowRightKeyDown', done);
-            // execute
-            var keyDownEvent = new Event('keydown');
-            keyDownEvent.key = "ArrowRight";
-            testEl.dispatchEvent(keyDownEvent);
-        });
-
         it("should trigger arrowLeftKeyDown event", function(done) {
             // assert
             testEl.addEventListener('arrowLeftKeyDown', done);
             // execute
             var keyDownEvent = new Event('keydown');
-            keyDownEvent.key = "ArrowLeft";
+            keyDownEvent.keyCode = 37;
             testEl.dispatchEvent(keyDownEvent);
         });
 
@@ -44,7 +35,16 @@ describe("makeup-key-emitter", function() {
             testEl.addEventListener('arrowUpKeyDown', done);
             // execute
             var keyDownEvent = new Event('keydown');
-            keyDownEvent.key = "ArrowUp";
+            keyDownEvent.keyCode = 38;
+            testEl.dispatchEvent(keyDownEvent);
+        });
+
+        it("should trigger arrowRightKeyDown event", function(done) {
+            // assert
+            testEl.addEventListener('arrowRightKeyDown', done);
+            // execute
+            var keyDownEvent = new Event('keydown');
+            keyDownEvent.keyCode = 39;
             testEl.dispatchEvent(keyDownEvent);
         });
 
@@ -53,7 +53,7 @@ describe("makeup-key-emitter", function() {
             testEl.addEventListener('arrowDownKeyDown', done);
             // execute
             var keyDownEvent = new Event('keydown');
-            keyDownEvent.key = "ArrowDown";
+            keyDownEvent.keyCode = 40;
             testEl.dispatchEvent(keyDownEvent);
         });
     });

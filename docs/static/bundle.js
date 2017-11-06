@@ -639,18 +639,34 @@ try {
 }
 
 });
+$_mod.run("/custom-event-polyfill$0.3.0/custom-event-polyfill");
 $_mod.def("/makeup-key-emitter$0.0.1/util", function(require, exports, module, __filename, __dirname) { 'use strict';
 
-function capitalizeFirstLetter(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-}
+/*
+    IE uses a different naming scheme for KeyboardEvent.key so we map the keyCode instead
+    https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key
+ */
+
+var keyCodeToKeyMap = {
+    '13': 'Enter',
+    '27': 'Escape',
+    '32': 'Spacebar',
+    '33': 'PageUp',
+    '34': 'PageDown',
+    '35': 'End',
+    '36': 'Home',
+    '37': 'ArrowLeft',
+    '38': 'ArrowUp',
+    '39': 'ArrowRight',
+    '40': 'ArrowDown'
+};
 
 function uncapitalizeFirstLetter(str) {
     return str.charAt(0).toLowerCase() + str.slice(1);
 }
 
 module.exports = {
-    capitalizeFirstLetter: capitalizeFirstLetter,
+    keyCodeToKeyMap: keyCodeToKeyMap,
     uncapitalizeFirstLetter: uncapitalizeFirstLetter
 };
 
@@ -664,25 +680,20 @@ var util = require('/makeup-key-emitter$0.0.1/util'/*'./util.js'*/);
 
 function onKeyDownOrUp(evt, el, keyEventType) {
     if (!evt.shiftKey) {
-        var key = evt.key;
-
-        // normalize spacebar key
-        if (evt.key === ' ') {
-            key = 'Spacebar';
-        }
+        var key = util.keyCodeToKeyMap[evt.keyCode];
 
         switch (key) {
-            case 'ArrowDown':
-            case 'ArrowLeft':
-            case 'ArrowRight':
-            case 'ArrowUp':
-            case 'End':
             case 'Enter':
             case 'Escape':
-            case 'Home':
-            case 'PageDown':
-            case 'PageUp':
             case 'Spacebar':
+            case 'PageUp':
+            case 'PageDown':
+            case 'End':
+            case 'Home':
+            case 'ArrowLeft':
+            case 'ArrowUp':
+            case 'ArrowRight':
+            case 'ArrowDown':
                 el.dispatchEvent(new CustomEvent(util.uncapitalizeFirstLetter(key + 'Key' + keyEventType), {
                     detail: evt,
                     bubbles: true
@@ -771,7 +782,7 @@ events.forEach(function(eventName) {
 
 // on widget2 buttons
 
-widget2ButtonEls.forEach(function(el) {
+Array.prototype.slice.call(widget2ButtonEls).forEach(function(el) {
     KeyEmitter.add(el);
 
     events.forEach(function(eventName) {

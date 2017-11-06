@@ -7,25 +7,20 @@ const util = require('./util.js');
 
 function onKeyDownOrUp(evt, el, keyEventType) {
     if (!evt.shiftKey) {
-        let key = evt.key;
-
-        // normalize spacebar key
-        if (evt.key === ' ') {
-            key = 'Spacebar';
-        }
+        const key = util.keyCodeToKeyMap[evt.keyCode];
 
         switch (key) {
-            case 'ArrowDown':
-            case 'ArrowLeft':
-            case 'ArrowRight':
-            case 'ArrowUp':
-            case 'End':
             case 'Enter':
             case 'Escape':
-            case 'Home':
-            case 'PageDown':
-            case 'PageUp':
             case 'Spacebar':
+            case 'PageUp':
+            case 'PageDown':
+            case 'End':
+            case 'Home':
+            case 'ArrowLeft':
+            case 'ArrowUp':
+            case 'ArrowRight':
+            case 'ArrowDown':
                 el.dispatchEvent(new CustomEvent(util.uncapitalizeFirstLetter(`${key}Key${keyEventType}`), {
                     detail: evt,
                     bubbles: true
