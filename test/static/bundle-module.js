@@ -1,5 +1,5 @@
-$_mod.installed("makeup-key-emitter$0.0.3", "custom-event-polyfill", "1.0.7");
-$_mod.def("/makeup-key-emitter$0.0.3/util", function(require, exports, module, __filename, __dirname) { 'use strict';
+$_mod.installed("makeup-key-emitter$0.1.0", "custom-event-polyfill", "1.0.7");
+$_mod.def("/makeup-key-emitter$0.1.0/util", function(require, exports, module, __filename, __dirname) { 'use strict';
 
 /*
     IE uses a different naming scheme for KeyboardEvent.key so we map the keyCode instead
@@ -30,12 +30,12 @@ module.exports = {
 };
 
 });
-$_mod.def("/makeup-key-emitter$0.0.3/index", function(require, exports, module, __filename, __dirname) { 'use strict';
+$_mod.def("/makeup-key-emitter$0.1.0/index", function(require, exports, module, __filename, __dirname) { 'use strict';
 
 // requires CustomEvent polyfill for IE9+
 // https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
 
-var util = require('/makeup-key-emitter$0.0.3/util'/*'./util.js'*/);
+var util = require('/makeup-key-emitter$0.1.0/util'/*'./util.js'*/);
 
 function onKeyDownOrUp(evt, el, keyEventType) {
     if (!evt.shiftKey) {
