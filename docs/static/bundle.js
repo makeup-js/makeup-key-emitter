@@ -715,11 +715,11 @@ function onKeyDownOrUp(evt, el, keyEventType) {
 }
 
 function onKeyDown(e) {
-    onKeyDownOrUp(e, this, "Down");
+    onKeyDownOrUp(e, this, 'Down');
 }
 
 function onKeyUp(e) {
-    onKeyDownOrUp(e, this, "Up");
+    onKeyDownOrUp(e, this, 'Up');
 }
 
 function addKeyDown(el) {
