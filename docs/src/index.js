@@ -1,8 +1,8 @@
-var KeyEmitter = require('../index.js');
-var widgetEl1 = document.getElementById('widget-1');
-var widget2ButtonEls = document.querySelectorAll('#widget-2 button');
+const KeyEmitter = require('../../src/index.js');
+const widgetEl1 = document.getElementById('widget-1');
+const widget2ButtonEls = document.querySelectorAll('#widget-2 button');
 
-var events = [
+const events = [
     'arrowUpKey',
     'arrowDownKey',
     'arrowLeftKey',
@@ -21,10 +21,10 @@ var events = [
 KeyEmitter.add(widgetEl1);
 
 events.forEach(function(eventName) {
-    widgetEl1.addEventListener(eventName + 'Down', function(e) {
+    widgetEl1.addEventListener(`${eventName}Down`, function(e) {
         console.log(this, e);
     });
-    widgetEl1.addEventListener(eventName + 'Up', function(e) {
+    widgetEl1.addEventListener(`${eventName}Up`, function(e) {
         console.log(this, e);
     });
 });
@@ -35,10 +35,10 @@ Array.prototype.slice.call(widget2ButtonEls).forEach(function(el) {
     KeyEmitter.add(el);
 
     events.forEach(function(eventName) {
-        el.addEventListener(eventName + 'Down', function(e) {
+        el.addEventListener(`${eventName}Down`, function(e) {
             console.log(this, e);
         });
-        el.addEventListener(eventName + 'Up', function(e) {
+        el.addEventListener(`${eventName}Up`, function(e) {
             console.log(this, e);
         });
     });

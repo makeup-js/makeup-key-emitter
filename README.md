@@ -13,7 +13,7 @@ A vanilla JavaScript port of <a href="https://github.com/makeup-jquery/jquery-co
 
 ## Experimental
 
-This module is still in an experimental state, until it reaches v1.0.0 you must consider all minor releases as breaking changes. Patch releases may introduce new features, but will be backwards compatible.
+This CommonJS module is still in an experimental state, until it reaches v1.0.0 you must consider all minor releases as breaking changes. Patch releases may introduce new features, but will be backwards compatible.
 
 ## Install
 
@@ -28,15 +28,15 @@ yarn add makeup-key-emitter
 ## Example
 
 ```js
-    const KeyEmitter = require('makeup-key-emitter');
+const KeyEmitter = require('makeup-key-emitter');
 
-    let el = document.getElementById('#widget1');
+let el = document.getElementById('#widget1');
 
-    KeyEmitter.addKeyDown(el);
+KeyEmitter.addKeyDown(el);
 
-    el.addEventListener('arrowRightKeyDown', function(e) {
-        console.log(this, e.type); // outputs (el1, 'arrowRightKeyDown')
-    });
+el.addEventListener('arrowRightKeyDown', function(e) {
+    console.log(this, e.type); // outputs (el1, 'arrowRightKeyDown')
+});
 ```
 
 ## Methods
@@ -48,26 +48,9 @@ yarn add makeup-key-emitter
 * add(el)
 * remove(el)
 
-## Development
+## Dependencies
 
-* `npm start`
-* `npm test`
-* `npm run lint`
-* `npm run fix`
-* `npm run build`
-* `npm run clean`
-
-The following hooks exist, and do not need to be invoked manually:
-
-* `npm prepublish` cleans, lints, tests and builds on every `npm publish` command
-* `pre-commit` cleans, lints, tests and builds on every `git commit` command
-
-## Test Reports
-
-Each test run will generate the following reports:
-
-* `/reports/coverage` contains Istanbul code coverage report
-* `/reports/html` contains HTML test report
+* [custom-event](https://github.com/webmodules/custom-event) (for IE)
 
 ## CI Build
 

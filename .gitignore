@@ -1,3 +1,5 @@
+.DS_Store
+
 # Logs
 logs
 *.log
@@ -9,12 +11,8 @@ node_modules
 # Lint output
 lint.txt
 
-# Lasso output
-.cache
-build
-test/static/bundle-test.js
-test/static/lasso-client.js
-test/static/custom-event-polyfill.js
+# Docs temp files
+docs/transpiled
 
 # Unit Test & Code Coverage Reports
-reports
+coverage

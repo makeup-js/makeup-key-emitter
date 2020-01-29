@@ -1,5 +1,5 @@
 describe("makeup-key-emitter", function() {
-    var KeyEmitter = require('../index.js');
+    var KeyEmitter = require('../src/index.js');
     var dom = '<ul class="widget">'
             + '<li><button>Button 1</button></li>'
             + '<li><button>Button 2</button></li>'

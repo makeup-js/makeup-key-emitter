@@ -1,7 +1,8 @@
 'use strict';
 
-// requires CustomEvent polyfill for IE9+
+// requires CustomEvent polyfill for IE
 // https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
+const CustomEvent = require('custom-event');
 
 const util = require('./util.js');
 
