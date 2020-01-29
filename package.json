@@ -65,5 +65,8 @@
     "index.js",
     "util.js",
     "yarn.lock"
+  ],
+  "browserslist": [
+    "extends @ebay/browserslist-config"
   ]
 }
