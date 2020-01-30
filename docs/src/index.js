@@ -1,4 +1,5 @@
-const KeyEmitter = require('../../src/index.js');
+const KeyEmitter = require('../../index.js');
+
 const widgetEl1 = document.getElementById('widget-1');
 const widget2ButtonEls = document.querySelectorAll('#widget-2 button');
 
